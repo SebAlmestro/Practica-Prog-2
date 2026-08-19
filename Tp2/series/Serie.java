@@ -26,6 +26,15 @@ public class Serie {
         }
         return vistosSerie;
     }
+    public double getPromedioCalificacionSerie(){
+        int promedio = 0;
+
+        for(int i = 0; i< temporadas.length; i++){
+            promedio += temporadas[i].getPromedioCalificacionTemporada();
+            
+        }
+        return promedio / temporadas.length;
+    }//rehacer
 
     //getters y setters
 
