@@ -5,11 +5,17 @@ public class Temporada {
     public Temporada(Episodio[] ee){
         this.episodios = ee;
     }
+    public int getEpisodiosVistosTemporada(){
+        int vistos = 0;
+        for(int i = 0; i<episodios.length; i++){
+            if(episodios[i].getSeVio()){
+                vistos++;
+            }
+        }
+        return vistos;
+
+    }
     public Episodio[] getEpisodios() {
         return episodios;
     }
-    public void setEpisodios(Episodio[] episodios) {
-        this.episodios = episodios;
-    }
-    
 }

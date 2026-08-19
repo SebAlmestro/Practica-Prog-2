@@ -16,6 +16,16 @@ public class Serie {
         this.genero = genero;
         this.temporadas = temporadas;
     }
+    //responsabilidades
+    public int getEpisodiosVistosSerie(){
+        int vistosSerie = 0;
+        
+        for(int i = 0; i < temporadas.length; i++){
+            vistosSerie += temporadas[i].getEpisodiosVistosTemporada();
+
+        }
+        return vistosSerie;
+    }
 
     //getters y setters
 
@@ -48,9 +58,6 @@ public class Serie {
         return temporadas;
     }
 
-    public void setTemporadas(Temporada[] temporadas) {
-        this.temporadas = temporadas;
-    }
 
     
 }
