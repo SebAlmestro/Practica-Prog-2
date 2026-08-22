@@ -1,39 +1,49 @@
 package Tp2.series;
-
+import java.util.ArrayList;
 public class Serie {
     //atributos
     private String titulo;
     private String descripcion;
     private String creador;
     private String genero;
-    private Temporada[] temporadas;
+    private ArrayList<Temporada> temporadas;
 
     //constructor
-    public Serie(String titulo, String descripcion, String creador, String genero, Temporada[] temporadas){
+    public Serie(String titulo, String descripcion, String creador, String genero) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.creador = creador;
         this.genero = genero;
-        this.temporadas = temporadas;
+        temporadas = new ArrayList<>();
     }
     //responsabilidades
     public int getEpisodiosVistosSerie(){
         int vistosSerie = 0;
         
-        for(int i = 0; i < temporadas.length; i++){
-            vistosSerie += temporadas[i].getEpisodiosVistosTemporada();
+        for(int i = 0; i < temporadas.size(); i++){
+            vistosSerie += temporadas.get(i).getEpisodiosVistosTemporada();
 
         }
         return vistosSerie;
     }
-    public double getPromedioCalificacionSerie(){
-        int promedio = 0;
+    public boolean seVieronTodos(){
+        int vistosSerie = getEpisodiosVistosSerie();
+        int episodios = 0;
+        for(int i=0; i<temporadas.size(); i++){
+            episodios+= temporadas.get(i).getEpisodios().size();
 
-        for(int i = 0; i< temporadas.length; i++){
-            promedio += temporadas[i].getPromedioCalificacionTemporada();
-            
         }
-        return promedio / temporadas.length;
+        return vistosSerie == episodios;
+    }
+
+    public double getPromedioCalificacionSerie(){
+        int calificaciones = 0;
+        int vistosSerie = getEpisodiosVistosSerie();
+        for(int i = 0; i<temporadas.size(); i++){
+            calificaciones+= temporadas.get(i).getCalificacionesTemporada();
+        }
+        return (double) calificaciones / vistosSerie;
+
     }//rehacer
 
     //getters y setters
@@ -63,9 +73,12 @@ public class Serie {
         this.genero = genero;
     }
 
-    public Temporada[] getTemporadas() {
+    public ArrayList<Temporada> getTemporadas() {
         return temporadas;
     }
+    public void agregarTemporada(Temporada temporada) {
+    temporadas.add(temporada);
+}
 
 
     
