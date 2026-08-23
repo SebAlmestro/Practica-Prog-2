@@ -1,10 +1,8 @@
 package Tp2.agendaPersonal;
 
 public class Participante{
-private String nombre;
-private int telefono;
-private String mail;
-public Participante(String nombre, int telefono, String mail) {
+private String nombre, telefono, mail;
+public Participante(String nombre, String telefono, String mail) {
     this.nombre = nombre;
     this.telefono = telefono;
     this.mail = mail;
@@ -15,10 +13,10 @@ public String getNombre() {
 public void setNombre(String nombre) {
     this.nombre = nombre;
 }
-public int getTelefono() {
+public String getTelefono() {
     return telefono;
 }
-public void setTelefono(int telefono) {
+public void setTelefono(String telefono) {
     this.telefono = telefono;
 }
 public String getMail() {
@@ -26,6 +24,14 @@ public String getMail() {
 }
 public void setMail(String mail) {
     this.mail = mail;
+}
+@Override
+public String toString() {
+    return "Participante{" +
+            "nombre='" + nombre + '\'' +
+            ", telefono='" + telefono + '\'' +
+            ", email='" + mail + '\'' +
+            '}';
 }
 
 }
