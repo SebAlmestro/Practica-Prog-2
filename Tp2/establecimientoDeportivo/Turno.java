@@ -11,5 +11,24 @@ public class Turno {
         this.usuario = usuario;
         this.fecha = fecha;
     }
+    public Cancha getCancha() {
+        return cancha;
+    }
+    public void setCancha(Cancha cancha) {
+        this.cancha = cancha;
+    }
+    public Usuario getUsuario() {
+        return usuario;
+    }
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    public LocalDate getFecha() {
+        return fecha;
+    }
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
+    }
+    
     
 }
